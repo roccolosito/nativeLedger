@@ -1,17 +1,15 @@
 const FILES_TO_CACHE = [
-    "/",
-    "/detail",
-    "/favorites",
-    "/manifest.json",
-    "/favicon.ico",
-    "/assets/css/style.css",
-  
-    // update to cache multiple bundles
-    "/dist/bundle.js",
-  
-    "https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/materia/bootstrap.css",
-    "https://use.fontawesome.com/releases/v5.8.2/css/all.css",
-  ];
+    '/',
+    '/icons/icon-192x192.png',
+    '/icons/icon-512x512.png',
+    '/db.js',
+    '/index.html',
+    '/index.js',
+    '/manifest.webmanifest',
+    'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+    '/styles.css',
+    'https://cdn.jsdelivr.net/npm/chart.js@2.8.0'
+];
   
   const STATIC_CACHE = "static-cache-v1";
   const RUNTIME_CACHE = "runtime-cache";
@@ -59,7 +57,7 @@ const FILES_TO_CACHE = [
     }
   
     // handle runtime GET requests for data from /api routes
-    if (event.request.url.includes("/api/images")) {
+    if (event.request.url.includes("/api")) {
       // make network request and fallback to cache if network request fails (offline)
       event.respondWith(
         caches.open(RUNTIME_CACHE).then(cache => {
